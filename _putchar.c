@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 
 	for (a = 0; format && format[a] != '\0'; a++)
 	{
-		if (format[i] != '%')
+		if (format[a] != '%')
 		{
 			buffer[buff_ind++] = format[a];
 			if (buff_ind == BUFF_SIZE)
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			print_buffer(buffer, &buff_ind);
 			flags = get_flags(format, &a);
 			width = get_width(format, &a, list);
-			precision = get_precision(format, &i, list);
+			precision = get_precision(format, &a, list);
 			size = get_size(format, &a);
 			++a;
 			printed = handle_print(format, &a, list, buffer,
